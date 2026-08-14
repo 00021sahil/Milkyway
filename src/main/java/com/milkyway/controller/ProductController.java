@@ -25,7 +25,10 @@ public class ProductController {
 	
 	@Autowired
 	private CartService cartService;
-	ProductService productService;
+
+	@Autowired
+	private ProductService productService;
+
 	String msg;
 	
 	

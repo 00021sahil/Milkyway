@@ -8,7 +8,6 @@ public class MilkywayApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MilkywayApplication.class, args);
-		
 		System.err.println("...................Milkyway Cakes..................");
 		
 	}

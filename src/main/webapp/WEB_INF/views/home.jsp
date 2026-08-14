@@ -7,10 +7,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MilkyWay - Home</title>
 
 <style>
-/* ===== GLOBAL ===== */
+/* ===== GLOBAL ===== */ 
 body {
 	margin: 0;
 	font-family: 'Segoe UI', sans-serif;
@@ -20,54 +21,46 @@ body {
 
 /* ===== PAGE ===== */
 .page-content {
-	padding: 50px 8%;
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
 }
 
 /* ===== HERO SECTION ===== */
 .hero {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 50px;
-	background: linear-gradient(135deg, #ffdde1, #fff1eb);
-	padding: 50px;
-	border-radius: 20px;
-	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-	animation: fadeUp 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background: linear-gradient(135deg, #ffdde1, #fff1eb);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.1);
+    animation: fadeUp 1s ease;
+    flex-wrap: wrap;
 }
-
-@
-keyframes fadeUp {from { opacity:0;
-	transform: translateY(30px);
-}
-
-to {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-}
-
 /* ===== HERO TEXT ===== */
 .hero-text h1 {
-	font-size: 36px;
-	margin-bottom: 15px;
+    font-size: clamp(28px, 5vw, 36px);
+    margin-bottom: 15px;
 }
 
 .hero-text p {
-	font-size: 16px;
-	line-height: 1.7;
-	max-width: 480px;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 550px;
 }
 
 /* ===== HERO VIDEO ===== */
 .hero-video {
-	position: relative;
-	width: 260px;
-	height: 460px;
-	border-radius: 20px;
-	overflow: hidden;
-	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 9 / 16;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,.3);
 }
 
 .hero-video video {
@@ -78,11 +71,11 @@ to {
 
 /* ===== ABOUT ===== */
 .brand-description {
-	margin-top: 60px;
-	background: #ffffff;
-	padding: 40px;
-	border-radius: 16px;
-	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    margin-top:50px;
+    background:#fff;
+    padding:35px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .brand-description h2 {
@@ -90,12 +83,13 @@ to {
 	margin-bottom: 20px;
 }
 /* ===== BIG ACTION BUTTONS ===== */
-.buttons {
-	display: flex;
-	justify-content: center;
-	gap: 35px;
-	margin: 70px 0;
-	flex-wrap: wrap;
+.buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    margin:60px 0;
+    flex-wrap:wrap;
 }
 
 .action-btn {
@@ -184,24 +178,97 @@ to {
 }
 
 /* ===== RESPONSIVE ===== */
-@media ( max-width : 900px) {
-	.hero {
-		flex-direction: column;
-		text-align: center;
-	}
-	.hero-video {
-		width: 220px;
-		height: 380px;
-	}
-	.buttons {
-		flex-direction: column;
-	}
+@media (max-width:992px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+    padding:35px 25px;
+}
+
+.hero-text p{
+    max-width:100%;
+}
+
+.hero-video{
+    max-width:240px;
+}
+
+.buttons{
+    flex-direction:column;
+}
+
+.action-btn{
+    width:90%;
+    max-width:350px;
+}
+
+}
+
+@media (max-width:768px){
+
+.page-content{
+    padding:20px 15px;
+}
+
+.hero{
+    padding:25px 18px;
+    gap:25px;
+}
+
+.hero-text h1{
+    font-size:28px;
+}
+
+.hero-text p{
+    font-size:15px;
+}
+
+.brand-description{
+    padding:25px 20px;
+}
+
+.hero-video{
+    max-width:220px;
+}
+
+.action-btn{
+    width:100%;
+    height:85px;
+    font-size:18px;
+}
+
+.action-btn span{
+    font-size:12px;
+}
+
+}
+
+@media (max-width:480px){
+
+.hero-text h1{
+    font-size:24px;
+}
+
+.hero-video{
+    max-width:180px;
+}
+
+.brand-description{
+    padding:20px 15px;
+}
+
+.action-btn{
+    height:80px;
+    font-size:17px;
+}
+
 }
 </style>
 </head>
 
 <body>
-
+	<%@ include file="Offers.jsp"%>
 	<div class="page-content">
 
 		<!-- HERO -->
@@ -256,10 +323,10 @@ to {
 			<p>Beyond cakes, we create experiences — personalized designs,
 				themed orders, and moments that bring smiles.</p>
 		</div>
-
+		<%@ include file="reviews.jsp"%>
 		<!-- ACTION BUTTONS -->
 		<div class="buttons">
-			
+
 
 			<button class="action-btn profile"
 				onclick="window.location.href='<c:url value='/orders' />'">

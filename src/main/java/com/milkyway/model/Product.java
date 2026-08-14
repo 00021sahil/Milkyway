@@ -1,102 +1,106 @@
 package com.milkyway.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Product {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int pid;
-	
-	private String category;
-	private String brand;
-	private String productName;
-	private int quantity;
-	private double price;
-	private String imageUrl;
-	
-	public Product() {
-		
-	}
 
-	public Product(int pid, String category, String brand, String productName, int quantity, double price,
-			String imageUrl) {
-		super();
-		this.pid = pid;
-		this.category = category;
-		this.brand = brand;
-		this.productName = productName;
-		this.quantity = quantity;
-		this.price = price;
-		this.imageUrl = imageUrl;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int pid;
 
-	public int getPid() {
-		return pid;
-	}
+    private String category;
 
-	public void setPid(int pid) {
-		this.pid = pid;
-	}
+    private String productName;
 
-	public String getCategory() {
-		return category;
-	}
+    private String flavour;
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
+    private String weight;
 
-	public String getBrand() {
-		return brand;
-	}
+    private double price;
 
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
+    private String imageUrl;
 
-	public String getProductName() {
-		return productName;
-	}
+    @Column(length = 1000)
+    private String description;
 
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
+    public Product() {
+    }
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public Product(int pid, String category, String productName, String flavour,
+                   String weight, double price, String imageUrl, String description) {
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+        this.pid = pid;
+        this.category = category;
+        this.productName = productName;
+        this.flavour = flavour;
+        this.weight = weight;
+        this.price = price;
+        this.imageUrl = imageUrl;
+        this.description = description;
+    }
 
-	public double getPrice() {
-		return price;
-	}
+    public int getPid() {
+        return pid;
+    }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    public void setPid(int pid) {
+        this.pid = pid;
+    }
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
+    public String getCategory() {
+        return category;
+    }
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
-	@Override
-	public String toString() {
-		return "Product [pid=" + pid + ", category=" + category + ", brand=" + brand + ", productName=" + productName
-				+ ", quantity=" + quantity + ", price=" + price + ", imageUrl=" + imageUrl + "]";
-	}
-	
-	
+    public String getProductName() {
+        return productName;
+    }
 
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getFlavour() {
+        return flavour;
+    }
+
+    public void setFlavour(String flavour) {
+        this.flavour = flavour;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
